@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nvZccgIn0HuVw9xwfiOXcSxyl1QIi1vN5oOMniR7ds8a1DL01SUOBaUniGPI5KkAlWs+vwneHom7K95TB6+B0g==",
+  "success": true,
+  "projectFilePath": "D:\\apps\\DotNetSamples\\DotNetSamples\\Toasts\\Toasts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tim\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512"
+  ],
+  "logs": []
+}
