@@ -29,11 +29,8 @@ namespace Toasts.Data
         }
 
         public void Dispose()
-        {
-           
-            _timer.Elapsed -= HideToast;
-            _timer?.Dispose();
-            
+        {          
+            _timer?.Dispose();            
         }
 
         private void StartCountDown()
