@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{303E88
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toasts", "Toasts", "{D55E66B1-1445-4ECC-93A6-7F03A5A2444F}"
 	ProjectSection(SolutionItems) = preProject
-		Readme.txt = Readme.txt
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toasts", "Toasts\Toasts.csproj", "{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA}"
