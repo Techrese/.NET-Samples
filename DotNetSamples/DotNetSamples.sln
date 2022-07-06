@@ -7,10 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{303E88
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toasts", "Toasts", "{D55E66B1-1445-4ECC-93A6-7F03A5A2444F}"
 	ProjectSection(SolutionItems) = preProject
-		Readme.md = Readme.md
+		Readme-ToastService.md = Readme-ToastService.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toasts", "Toasts\Toasts.csproj", "{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{C0A10E1B-0359-4B44-BF0C-E0D2729988A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{A80F9007-B34D-42E9-874B-9B5B5F825A14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Singleton", "Singleton", "{494401AC-81CA-412B-B798-469F105C0FDD}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe-Patterns-singleton.md = ReadMe-Patterns-singleton.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{533964F1-D9C0-408C-894E-5A10B762D4DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +33,10 @@ Global
 		{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533964F1-D9C0-408C-894E-5A10B762D4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533964F1-D9C0-408C-894E-5A10B762D4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533964F1-D9C0-408C-894E-5A10B762D4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533964F1-D9C0-408C-894E-5A10B762D4DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -29,6 +44,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D55E66B1-1445-4ECC-93A6-7F03A5A2444F} = {303E884D-E6EB-42CA-8AE8-6359922E63CF}
 		{17FCAE54-A829-4002-9A0B-25F7C8EBA8AA} = {D55E66B1-1445-4ECC-93A6-7F03A5A2444F}
+		{A80F9007-B34D-42E9-874B-9B5B5F825A14} = {C0A10E1B-0359-4B44-BF0C-E0D2729988A4}
+		{494401AC-81CA-412B-B798-469F105C0FDD} = {A80F9007-B34D-42E9-874B-9B5B5F825A14}
+		{533964F1-D9C0-408C-894E-5A10B762D4DF} = {494401AC-81CA-412B-B798-469F105C0FDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E16799A7-1766-465B-9908-52790587A8E6}
