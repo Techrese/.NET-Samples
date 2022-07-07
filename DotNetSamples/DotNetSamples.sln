@@ -32,6 +32,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdapterPattern", "AdapterPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdapterPatternClient", "AdapterPatternClient\AdapterPatternClient.csproj", "{5A285A0B-C192-4847-8D3D-14EC1FB35A79}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Decorator", "Decorator", "{379C923D-BB86-4588-B509-420568EBAA67}"
+	ProjectSection(SolutionItems) = preProject
+		DecoratorPattern.md = DecoratorPattern.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorPattern", "DecoratorPattern\DecoratorPattern.csproj", "{328430E4-9E40-4BAF-A3F0-D5EE1CA41713}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +61,10 @@ Global
 		{5A285A0B-C192-4847-8D3D-14EC1FB35A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A285A0B-C192-4847-8D3D-14EC1FB35A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A285A0B-C192-4847-8D3D-14EC1FB35A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328430E4-9E40-4BAF-A3F0-D5EE1CA41713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328430E4-9E40-4BAF-A3F0-D5EE1CA41713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328430E4-9E40-4BAF-A3F0-D5EE1CA41713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328430E4-9E40-4BAF-A3F0-D5EE1CA41713}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +78,8 @@ Global
 		{7A28E6C7-C336-4654-BEC0-58E92C299B10} = {A80F9007-B34D-42E9-874B-9B5B5F825A14}
 		{582DD2E5-BF6F-4998-BD39-917BC6A64953} = {7A28E6C7-C336-4654-BEC0-58E92C299B10}
 		{5A285A0B-C192-4847-8D3D-14EC1FB35A79} = {7A28E6C7-C336-4654-BEC0-58E92C299B10}
+		{379C923D-BB86-4588-B509-420568EBAA67} = {A80F9007-B34D-42E9-874B-9B5B5F825A14}
+		{328430E4-9E40-4BAF-A3F0-D5EE1CA41713} = {379C923D-BB86-4588-B509-420568EBAA67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E16799A7-1766-465B-9908-52790587A8E6}
