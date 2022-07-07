@@ -16,3 +16,10 @@ And what about the implementation itself: Let's say you have a method GetById yo
 
 
 
+I don't say this is the perfect implementation, but I actually prefer example2 over example 1.
+
+Why?
+
+simple example 1 is the generic repository pattern
+and example 2 is a concrete implementation. in the first example the predicate is always a 'where' while I sometimes want to use single or first.
+
