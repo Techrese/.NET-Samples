@@ -46,7 +46,7 @@ namespace RepositoryPattern_Example2
 
         public void UpdateCustomerAsync(Customer customer)
         {
-            return _context.Customers.Update(customer);
+            _context.Customers.Update(customer);
         }
     }
 }
