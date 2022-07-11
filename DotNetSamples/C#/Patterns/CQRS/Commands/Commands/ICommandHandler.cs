@@ -1,4 +1,4 @@
-﻿namespace Application
+﻿namespace Commands
 {
     public interface ICommandHandler<T> where T : ICommand
     {

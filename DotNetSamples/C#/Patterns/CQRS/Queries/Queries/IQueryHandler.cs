@@ -1,5 +1,5 @@
 ﻿
-namespace Application
+namespace Queries
 {
     public interface IQueryHandler<T> where T: IQuery
     {

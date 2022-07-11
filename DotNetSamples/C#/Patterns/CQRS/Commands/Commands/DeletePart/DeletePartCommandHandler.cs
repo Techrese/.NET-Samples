@@ -1,6 +1,7 @@
-﻿using Infrastructure;
+﻿
+using Infrastructure;
 
-namespace Application.DeletePart
+namespace Commands.DeletePart
 {
     public class DeletePartCommandHandler : ICommandHandler<DeletePartCommand>
     {

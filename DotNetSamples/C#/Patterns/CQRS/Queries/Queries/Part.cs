@@ -1,7 +1,7 @@
 ﻿
-namespace Application.AddNewPart
+namespace Queries
 {
-    public class AddNewPartCommand : ICommand
+    public class Part : IResult
     {
         public Guid Id { get; set; }
 

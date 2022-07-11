@@ -1,5 +1,5 @@
 ﻿
-namespace Application.DeletePart
+namespace Commands.DeletePart
 {
     public class DeletePartCommand : ICommand
     {

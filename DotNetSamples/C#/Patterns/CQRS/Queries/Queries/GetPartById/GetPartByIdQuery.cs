@@ -1,4 +1,4 @@
-﻿namespace Application.GetPartById
+﻿namespace Queries.GetPartById
 {
     public class GetPartByIdQuery : IQuery
     {

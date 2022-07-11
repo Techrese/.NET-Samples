@@ -1,5 +1,5 @@
 ﻿
-namespace Application
+namespace Commands
 {
     public interface ICommand
     {

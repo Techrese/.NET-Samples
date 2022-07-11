@@ -1,8 +1,7 @@
-﻿
+﻿using Infrastructure;
 using Domain;
-using Infrastructure;
 
-namespace Application.AddNewPart
+namespace Commands.AddNewPart
 {
     public class AddNewPartCommandHandler : ICommandHandler<AddNewPartCommand>
     {
