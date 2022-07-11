@@ -1,8 +1,8 @@
 ﻿
 namespace Application
 {
-    public interface ICommandDispatcher<T> where T : class
+    public interface ICommandDispatcher<T> where T : ICommand
     {
-        void Send<T>(T command);
+        void Send(T command);
     }
 }
