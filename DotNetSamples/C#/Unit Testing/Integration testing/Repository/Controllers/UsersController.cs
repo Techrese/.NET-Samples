@@ -37,6 +37,7 @@ namespace Repository.Controllers
             }          
         }
 
+        [HttpPut]
         public ActionResult UpdateUser(User user)
         {
             _userRepository.UpdateUser(user);
