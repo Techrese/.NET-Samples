@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace CalculatorService
 {
-    public class Calculator : CalculatorExtensions
+    public class Calculator
     {
+        private readonly CalculatorExtensions _extensions;
+
+        public Calculator(CalculatorExtensions extensions)
+        {
+            _extensions = extensions;
+        }
+
         public int Add(string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -40,7 +47,7 @@ namespace CalculatorService
                 throw new FormatException("part one cannot be converted");
             }
                         
-            return value1 + value2 + ExtraAdd;
+            return value1 + value2 + _extensions.ExtraAdd;
         }
     }
 }

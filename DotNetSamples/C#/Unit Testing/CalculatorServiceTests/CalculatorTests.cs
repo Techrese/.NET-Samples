@@ -4,7 +4,7 @@ namespace CalculatorServiceTests
 {
     public class Tests
     {
-        private readonly Calculator _calculatorService = new();
+        private readonly Calculator _calculatorService = new(new CalculatorExtensions());
 
         [SetUp]
         public void Setup()
@@ -51,12 +51,12 @@ namespace CalculatorServiceTests
 
         [Test]
         public void ShouldReturnResultWithMOQ()
-        {
-            Mock<Calculator> moq = new Mock<Calculator>();            
+        {            
+            Mock<CalculatorExtensions> moqExtensions = new Mock<CalculatorExtensions>();
 
-            moq.Setup(x => x.ExtraAdd).Returns(4);
+            moqExtensions.Setup(x => x.ExtraAdd).Returns(4);
 
-            Calculator stub = moq.Object;
+            Calculator stub = new Calculator(moqExtensions.Object);
 
             Assert.AreEqual(expected: 11, actual: stub.Add("3,4"));
         }
