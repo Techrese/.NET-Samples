@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculatorService
 {
-    public class Calculator
+    public class Calculator : CalculatorExtensions
     {
         public int Add(string input)
         {
@@ -39,8 +39,8 @@ namespace CalculatorService
             {
                 throw new FormatException("part one cannot be converted");
             }
-
-            return value1 + value2;
+                        
+            return value1 + value2 + ExtraAdd;
         }
     }
 }
