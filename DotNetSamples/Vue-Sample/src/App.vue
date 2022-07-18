@@ -10,12 +10,14 @@
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
     import HeaderBar from '@/components/header-bar.vue';
+    import Hero from '@/components/hero.vue';
     import Heroes from '@/components/heroes.vue';
 
     @Component({
         name: 'App',
         components: {
             HeaderBar,
+            Hero,
             Heroes,
         }
     })
