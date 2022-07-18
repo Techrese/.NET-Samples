@@ -1,20 +1,27 @@
 <template>
     <div id="app">
-        <Home msg="Hello world!" />
+        <HeaderBar />
+        <div class="main-section">
+            <Heroes/>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import Home from './components/Home.vue';
+    import HeaderBar from '@/components/header-bar.vue';
+    import Heroes from '@/components/heroes.vue';
 
     @Component({
+        name: 'App',
         components: {
-            Home
+            HeaderBar,
+            Heroes,
         }
     })
     export default class App extends Vue { }
 </script>
 
-<style>
+<style lang="scss">
+    @import '@/design/index.scss';
 </style>

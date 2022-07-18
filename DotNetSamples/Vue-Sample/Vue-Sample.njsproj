@@ -35,6 +35,12 @@
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
     <Content Include="src\assets\logo.png" />
+    <Content Include="src\components\header-bar-brand.vue" />
+    <Content Include="src\components\header-bar-links.vue" />
+    <Content Include="src\components\header-bar.vue" />
+    <Content Include="src\components\heroes.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\design\index.scss" />
     <Content Include="src\design\_bulma.scss" />
     <Content Include="src\design\_styles.scss" />
