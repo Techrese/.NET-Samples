@@ -19,9 +19,9 @@
             Heroes,
         }
     })
-    export default class App extends Vue { }
+    export default class App extends Vue{ }
 </script>
 
 <style lang="scss">
-    @import '@/design/index.scss';
+    @import 'design/index.scss';
 </style>
