@@ -5,14 +5,21 @@
         </div>
         <div class="columns">
             <div class="column is-3">
-                <header class="card-header">
-                    <p class="card-header-title">heroes list</p>
-                </header>
-                <ul class="list is-hoverable">
-                    <li v-for="hero in heroes" :key="hero.id">
-                        <a class="list-item" @click="selectedHero = hero" :class="{'is-active': selectedHero == hero}"><span>{{hero.firstName}}</span></a>
-                    </li>
-                </ul>
+                <div class="card" v-show="heroes.length">
+                    <header class="card-header">
+                        <p class="card-header-title">heroes list</p>
+                    </header>
+                    <ul class="list is-hoverable">
+                        <li v-for="hero in heroes" :key="hero.id">
+                            <a class="list-item"
+                               @click="selectHero(hero)"
+                               :class="{ 'is-active': selectedHero === hero }">
+                                <span>{{ hero.firstName }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notification is-info" v-show="message">{{ message }}</div>
             </div>
         </div>
         <div class="columns" v-if="selectedHero">
@@ -65,40 +72,65 @@
 
     import { Vue } from 'vue-property-decorator';
 
+    const ourHeroes = [
+        {
+            id: 10,
+            firstName: 'Ella',
+            lastName: 'Papa',
+            description: 'fashionista',
+        },
+        {
+            id: 20,
+            firstName: 'Madelyn',
+            lastName: 'Papa',
+            description: 'the cat whisperer',
+        },
+        {
+            id: 30,
+            firstName: 'Haley',
+            lastName: 'Papa',
+            description: 'pen wielder',
+        },
+        {
+            id: 40,
+            firstName: 'Landon',
+            lastName: 'Papa',
+            description: 'arc trooper',
+        },
+    ];
+
     export default Vue.extend({
 
         name: 'Heroes',
+
         data() {
             return {
+                heroes: ourHeroes,
                 selectedHero: undefined,
-                showMore: false,
-                heroes: [
-                    {
-                        id: 10,
-                        firstName: 'Ella',
-                        lastName: 'Papa',
-                        description: 'fashionista',
-                    },
-                    {
-                        id: 20,
-                        firstName: 'Madelyn',
-                        lastName: 'Papa',
-                        description: 'the cat whisperer',
-                    },
-                    {
-                        id: 30,
-                        firstName: 'Haley',
-                        lastName: 'Papa',
-                        description: 'pen wielder',
-                    },
-                    {
-                        id: 40,
-                        firstName: 'Landon',
-                        lastName: 'Papa',
-                        description: 'arc trooper',
-                    },
-                ],
-            }
+                message: '',
+            };
+        },
+
+        computed: {
+            fullName(): string {                   
+                 return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`;                 
+            },
+
+        },
+
+
+        methods: {            
+            cancelHero() {
+                this.selectedHero = undefined;
+                this.message = '';
+            },
+            saveHero() {
+                // This only updates when you click the save button
+                this.message = JSON.stringify(this.selectedHero, null, '\n ');
+            },
+            selectHero(hero: any) {
+                this.selectedHero = hero;
+            },
         },
 
     });
