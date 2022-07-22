@@ -112,8 +112,9 @@
         },
 
         computed: {
-            fullName(): string {                   
-                 return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`;                 
+            fullName(): string {      
+                
+                 return `${this.selectedHero.firstName} $(this.selectedHero.lastName)`;                 
             },
 
         },

@@ -10,11 +10,13 @@ namespace DutchTreat.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IMailService _mailService;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, IMailService mailService)
+        public HomeController(ILogger<HomeController> logger, IMailService mailService, ApplicationDbContext context)
         {
             _logger = logger;
             _mailService = mailService;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -50,6 +52,12 @@ namespace DutchTreat.Controllers
             return View();
         }
 
+        public IActionResult Shop()
+        {
+            var results = _context.Products.OrderBy(x => x.Category).ToList();
+            return View(results);
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
