@@ -2,6 +2,7 @@ using DutchTreat.Models;
 using DutchTreat.Models.Abstractions;
 using DutchTreat.Services;
 using DutchTreat.Services.Abstractions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -14,6 +15,10 @@ builder.Services.AddTransient<Seeder>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddIdentity<StoreUser, IdentityRole>(config => 
+{
+    config.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<ApplicationDbContext>();        
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
 {
@@ -31,18 +36,19 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-var scopefactory = app.Services.GetService<IServiceScopeFactory>();
-using (var scope = scopefactory.CreateScope())
-{
-    var seeder = app.Services.GetService<Seeder>();
-    await seeder.Seed();
-}
+//var scopefactory = app.Services.GetService<IServiceScopeFactory>();
+//using (var scope = scopefactory.CreateScope())
+//{
+//    var seeder = app.Services.GetService<Seeder>();
+//    await seeder.SeedAsync();
+//}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

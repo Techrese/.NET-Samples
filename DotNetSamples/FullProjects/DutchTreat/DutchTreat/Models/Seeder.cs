@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Text.Json;
 
 namespace DutchTreat.Models
@@ -7,16 +8,32 @@ namespace DutchTreat.Models
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly UserManager<StoreUser> _userManager;
 
-        public Seeder(ApplicationDbContext context, IWebHostEnvironment env)
+        public Seeder(ApplicationDbContext context, IWebHostEnvironment env, UserManager<StoreUser> userManager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
         }
 
-        public async Task Seed()
+        public async Task SeedAsync ()
         {
             _context.Database.EnsureCreated();
+
+            StoreUser user =  await _userManager.FindByEmailAsync("test@test.test");
+            if (user == null)
+            {
+                user = new()
+                {
+                    Firstname = "test", 
+                    LastName = "test2", 
+                    Email = "test@test.test",
+                    UserName = "test"
+                };
+
+                await _userManager.CreateAsync(user, "P@ssw0rd!");
+            }
 
             if (!_context.Products.Any())
             {
@@ -31,6 +48,7 @@ namespace DutchTreat.Models
                     OrderDate = DateTime.Today,
                     OrderNumber = "10000",
                     Id = Guid.NewGuid(),
+                    User = user,
                     Items = new List<OrderItem>()
                     {
                         new OrderItem()
