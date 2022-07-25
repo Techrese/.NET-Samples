@@ -11,6 +11,7 @@
         public string ArtDating { get; set; } = default!;
         public string ArtId { get; set; } = default!;
         public string ArtList { get; set; } = default!;
+        public string Artiist { get; set; } = default!;
         public DateTime ArtistsBirthDate { get; set; }
         public DateTime ArtistDeadthDate { get; set; }
         public string ArtistNationality { get; set; } = default!;

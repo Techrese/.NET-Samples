@@ -1,4 +1,5 @@
 ﻿using DutchTreat.Models;
+using DutchTreat.Models.Abstractions;
 using DutchTreat.Services.Abstractions;
 using DutchTreat.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +12,14 @@ namespace DutchTreat.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IMailService _mailService;
         private readonly ApplicationDbContext _context;
+        private readonly IProductRepository _productRepository;
 
-        public HomeController(ILogger<HomeController> logger, IMailService mailService, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, IMailService mailService, ApplicationDbContext context, IProductRepository productRepository)
         {
             _logger = logger;
             _mailService = mailService;
             _context = context;
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
@@ -54,7 +57,7 @@ namespace DutchTreat.Controllers
 
         public IActionResult Shop()
         {
-            var results = _context.Products.OrderBy(x => x.Category).ToList();
+            var results = _productRepository.GetAllProducts();
             return View(results);
 
         }

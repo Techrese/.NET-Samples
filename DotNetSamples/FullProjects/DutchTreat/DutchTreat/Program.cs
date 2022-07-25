@@ -3,6 +3,7 @@ using DutchTreat.Models.Abstractions;
 using DutchTreat.Services;
 using DutchTreat.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMailService, MailService>();
 builder.Services.AddTransient<Seeder>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
 {
