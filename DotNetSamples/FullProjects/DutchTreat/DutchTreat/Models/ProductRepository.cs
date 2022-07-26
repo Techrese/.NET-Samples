@@ -19,12 +19,12 @@ namespace DutchTreat.Models
             _context.Add(order);
         }
 
-        public IEnumerable<Order> GetAllOrders(bool includeItems)
+        public IEnumerable<Order> GetAllOrdersByUser(string username, bool includeItems)
         {
-            if(includeItems)
-                return _context.Orders.Include(x => x.Items).ThenInclude(x => x.Product).ToList();
+            if (includeItems)
+                return _context.Orders.Where(x => x.User.UserName == username).Include(x => x.Items).ThenInclude(x => x.Product).ToList();
 
-            return _context.Orders.ToList();
+            return _context.Orders.Where(x => x.User.UserName == username).ToList();
         }
 
         public IEnumerable<Product> GetAllProducts()
@@ -32,9 +32,9 @@ namespace DutchTreat.Models
             return _context.Products.OrderBy(x => x.Category).ToList();
         }
 
-        public Order GetOrderById(Guid id)
+        public Order GetOrderById(string username, Guid id)
         {
-            return _context.Orders.Include(x => x.Items).ThenInclude(x => x.Product).FirstOrDefault(x => x.Id == id);
+            return _context.Orders.Where(x => x.User.UserName == username).Include(x => x.Items).ThenInclude(x => x.Product).FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Product> GetProductsByCategory(string category)

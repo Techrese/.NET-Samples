@@ -13,5 +13,7 @@ namespace DutchTreat.Models
         public string OrderNumber { get; set; } = default!;
 
         public IEnumerable<OrderItem> Items { get; set; }
+
+        public StoreUser User { get; set; }
     }
 }

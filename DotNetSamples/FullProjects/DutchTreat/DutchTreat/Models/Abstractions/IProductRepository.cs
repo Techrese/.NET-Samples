@@ -4,10 +4,10 @@
     {
 
         IEnumerable<Product> GetAllProducts();
-        IEnumerable<Product> GetProductsByCategory(string category);
-        IEnumerable<Order> GetAllOrders(bool includeItems);
-        Order GetOrderById(Guid id);
+        IEnumerable<Product> GetProductsByCategory(string category);        
+        Order GetOrderById(string username, Guid id);
         void AddEntity(object order);
         void Save();
+        IEnumerable<Order> GetAllOrdersByUser(string username, bool includeItems);        
     }
 }
