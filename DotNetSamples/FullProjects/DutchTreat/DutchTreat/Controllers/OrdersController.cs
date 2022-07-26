@@ -16,7 +16,7 @@ namespace DutchTreat.Controllers
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
-        private readonly UserManager<StoreUser> _userManager
+        private readonly UserManager<StoreUser> _userManager;
 
         public OrdersController(IProductRepository repostiory,  IMapper mapper, UserManager<StoreUser> userManager)
         {

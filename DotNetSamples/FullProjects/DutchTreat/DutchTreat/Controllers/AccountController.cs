@@ -43,7 +43,7 @@ namespace DutchTreat.Controllers
                 }
             }
 
-            return View();
+            return View("Login");
             
         }
 

@@ -35,37 +35,37 @@ namespace DutchTreat.Models
                 await _userManager.CreateAsync(user, "P@ssw0rd!");
             }
 
-            if (!_context.Products.Any())
-            {
-                var filePath = Path.Combine(_env.ContentRootPath, "art.json");
-                var json = File.ReadAllText(filePath);
-                var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
+            //if (!_context.Products.Any())
+            //{
+            //    var filePath = Path.Combine(_env.ContentRootPath, "art.json");
+            //    var json = File.ReadAllText(filePath);
+            //    var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
 
-                await _context.Products.AddRangeAsync(products);
+            //    await _context.Products.AddRangeAsync(products);
 
-                Order order = new()
-                {
-                    OrderDate = DateTime.Today,
-                    OrderNumber = "10000",
-                    Id = Guid.NewGuid(),
-                    User = user,
-                    Items = new List<OrderItem>()
-                    {
-                        new OrderItem()
-                        {
-                            Product = products.First(),
-                            Quantity = 5,
-                            UnitPrice = products.First().Price,
-                            Id = Guid.NewGuid(),
-                        }
-                    }
-                };
+            //    Order order = new()
+            //    {
+            //        OrderDate = DateTime.Today,
+            //        OrderNumber = "10000",
+            //        Id = Guid.NewGuid(),
+            //        User = user,
+            //        Items = new List<OrderItem>()
+            //        {
+            //            new OrderItem()
+            //            {
+            //                Product = products.First(),
+            //                Quantity = 5,
+            //                UnitPrice = products.First().Price,
+            //                Id = Guid.NewGuid(),
+            //            }
+            //        }
+            //    };
 
-                await _context.AddAsync(order);
+            //    await _context.AddAsync(order);
 
 
-                await _context.SaveChangesAsync();
-            }
+            //    await _context.SaveChangesAsync();
+            //}
             
         }
     }

@@ -27,7 +27,7 @@ namespace DutchTreat.Controllers
         {
             try
             {
-                var order = _repository.GetOrderByIdByUser(User.Identity.Name,orderId);
+                var order = _repository.GetOrderById(User.Identity.Name,orderId);
                 if (order != null)
                 {
                     return Ok(_mapper.Map<IEnumerable<OrderItemDto>>(order));

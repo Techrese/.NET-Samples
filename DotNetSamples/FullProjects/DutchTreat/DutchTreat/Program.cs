@@ -50,12 +50,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//var scopefactory = app.Services.GetService<IServiceScopeFactory>();
-//using (var scope = scopefactory.CreateScope())
-//{
-//    var seeder = app.Services.GetService<Seeder>();
-//    await seeder.SeedAsync();
-//}
+var scopefactory = app.Services.GetService<IServiceScopeFactory>();
+using (var scope = scopefactory.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetService<Seeder>();
+    await seeder.SeedAsync();
+}
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
