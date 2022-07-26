@@ -4,7 +4,9 @@ using DutchTreat.Services;
 using DutchTreat.Services.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,18 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMailService, MailService>();
 builder.Services.AddTransient<Seeder>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddAuthentication()
+    .AddCookie()
+    .AddJwtBearer(config => 
+    {
+        config.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidIssuer = builder.Configuration.GetSection("Tokens.Issuer").Value,
+            ValidAudience = builder.Configuration.GetSection("Tokens.Audience").Value,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Tokesn.key").Value))
+        };
+    });
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddIdentity<StoreUser, IdentityRole>(config => 
