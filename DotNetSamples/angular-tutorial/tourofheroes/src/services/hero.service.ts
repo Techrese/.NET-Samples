@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Hero } from "src/models/hero";
-import { catchError, Observable } from "rxjs";
+import { catchError, Observable, retry } from "rxjs";
+import { observableToBeFn } from "rxjs/internal/testing/TestScheduler";
 
 @Injectable({
     providedIn: 'root'
@@ -20,18 +21,27 @@ export class heroService {
         
     }
 
-
-    getHeroes() {
-    
+    getHeroes(): Observable<Hero[]>  {
+        return this.http.get<Hero[]>(this.heroesUrl);
     }
 
-    addHero(hero: Hero): Observable<Hero> {
+    getHero(id: number): Observable<Hero> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.get<Hero>(url);
+    }
+
+    addHero(hero: Hero): Observable<Hero> {        
         return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions);
        
     }
 
-    updateHero(hero: Hero) {
+    updateHero(hero: Hero): Observable<Hero> {
+        return this.http.put<Hero>(this.heroesUrl, hero, this.httpOptions);
+    }
 
+    deleteHero(id: number): Observable<Hero> {
+        const url = `${this.heroesUrl}/${id}`;
+        return this.http.delete<Hero>(url, this.httpOptions);
     }
 
 }

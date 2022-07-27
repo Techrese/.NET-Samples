@@ -1,1 +1,13 @@
-<p>heroes works!</p>
+<h1>{{title}}</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <ul class="list-group" style="list-style-type:none;">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let hero of heroes">
+                <a routerLink="/details/{{hero.id}}">
+                    <span class="badge">{{hero.id}}</span>{{hero.name}}
+                </a>
+                <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+            </li>
+        </ul>
+    </div>
+</div>
