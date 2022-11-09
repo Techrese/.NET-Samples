@@ -1,2 +1,8 @@
 <p>Hello World</p>
 {{title}}
+
+<input (keyup)="changeImage($event)" [value]="imgUrl">
+
+<app-post *ngFor="let image in images; let i = index" [img]="image" (imgSelected)="logImg($event)">
+    <p>Index: {{i}}</p>
+</app-post>
