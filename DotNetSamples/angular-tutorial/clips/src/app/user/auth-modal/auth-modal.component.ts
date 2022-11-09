@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -12,7 +12,10 @@ export class AuthModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.modal.register('auth');
-    this.modal.register('test');
+  }
+
+  ngOnDestroy(): void {
+    this.modal.unregister('auth');
   }
 
 }
