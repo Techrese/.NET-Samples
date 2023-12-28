@@ -1,0 +1,67 @@
+﻿@page "/Quickgrids"
+
+<h3>QuickGrids</h3>
+
+<p>@Message</p>
+
+<QuickGrid Items="@people">
+    <PropertyColumn Property="@(x => x.Id)" Sortable="true"/>
+    <PropertyColumn Property="@(x => x.FirstName)" Sortable="true"/>
+    <PropertyColumn Property="@(x => x.LastName)" Sortable="true"/>
+    <PropertyColumn Property="@(x => x.DateOfBirth)" Sortable="true" Format="dd-MM-yyyy"/>
+    <PropertyColumn Property="@(x => x.Active)" Sortable="true"/>
+    <PropertyColumn Property="@(x => x.Score)" Sortable="true"/>
+    <TemplateColumn Title="Actions">
+        <button class="btn btn-primary" @onclick="@(() => Edit(context))">Edit</button>
+    </TemplateColumn>
+</QuickGrid>
+
+
+@code {
+    public IQueryable<Person> originalPeople = default!;
+    public IQueryable<Person> people = default!;
+
+    string Message = default!;
+
+    protected override void OnInitialized()
+    {
+        originalPeople = GetPeople().AsQueryable();
+        people = originalPeople;
+
+    }
+
+    private void Edit(Person p)
+    {
+        Message = $"Edit current Person {p.Id}";
+    }
+
+    public List<Person> GetPeople()
+    {
+        var result = new List<Person>();
+
+        for (int i = 0; i <= 100; ++i)
+        {
+            result.Add(new Person
+            {
+                Id = i,
+                FirstName = Faker.Name.First(),
+                LastName = Faker.Name.Last(),
+                DateOfBirth = Faker.Identification.DateOfBirth(),
+                Active = Faker.Boolean.Random(),
+                Score = Faker.RandomNumber.Next(100)
+            });
+        }
+
+        return result;
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; } = default!;
+        public string LastName { get; set; } = default!;
+        public int Score { get; set; }
+        public bool Active { get; set; }
+        public DateTime DateOfBirth { get; set; }
+    }
+}
