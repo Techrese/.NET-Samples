@@ -109,7 +109,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button test1", "Button test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Button test1.Client", "Button test1\Button test1.Client\Button test1.Client.csproj", "{E9259287-3C03-4CC4-8489-EE4BFE25D7D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonTest2", "ButtonTest2\ButtonTest2.csproj", "{B57C0F08-46F3-4F99-B449-CCE27C91B8C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ButtonTest2", "ButtonTest2\ButtonTest2.csproj", "{B57C0F08-46F3-4F99-B449-CCE27C91B8C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
