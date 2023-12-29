@@ -1,0 +1,27 @@
+﻿@page "/counter"
+@rendermode InteractiveWebAssembly
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="@(SetCount(10))">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private EventCallback SetCount(int count)
+    {
+        currentCount = count;
+        return new EventCallback();
+    }
+}
